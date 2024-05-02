@@ -1,0 +1,16 @@
+//ブレイクポイントを登録
+$tab_point:960px;
+$sp_point:680px;
+
+//mixinを登録
+@mixin tab{
+@media (max-width:$tab_point){
+@content();
+}
+}
+
+@mixin sp{
+@media (max-width:$sp_point){
+@content();
+}
+}

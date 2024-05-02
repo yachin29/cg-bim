@@ -1,0 +1,98 @@
+/* worksページ */
+.main-img{
+max-width: 960px;
+margin: 140px auto;
+}
+
+.works-page-wrapper{
+width: 90%;
+margin: 100px auto;
+>h2{
+font-size: 34px;
+margin: 0 auto 50px;
+}
+>[type="radio"]:checked+label{
+background-color: var(--text_color);
+color: #FFF;
+}
+}
+/* ラジオボタン */
+
+
+label{
+display: inline-block;
+width: 160px;
+padding: 15px 10px;
+background-color: #c6c6c6;
+margin: 0 10px;
+text-align: center;
+cursor: pointer;
+}
+label:nth-of-type(2){
+background-color: var(--service-1);
+}
+label:nth-of-type(3){
+background-color: var(--service-2);
+}
+label:nth-of-type(4){
+background-color: var(--service-3);
+}
+label:nth-of-type(5){
+background-color: var(--service-4);
+}
+[type="radio"]{
+display: none;
+}
+
+/* フィルタリングの指定 */
+#btn-ex:checked ~ .works-item-wrapper>.works-box:not([data-category*="cate-1"]){
+display: none;
+}
+#btn-in:checked ~ .works-item-wrapper>.works-box:not([data-category*="cate-2"]){
+display: none;
+}
+#btn-bim:checked ~ .works-item-wrapper>.works-box:not([data-category*="cate-3"]){
+display: none;
+}
+#btn-vr:checked ~ .works-item-wrapper>.works-box:not([data-category*="cate-4"]){
+display: none;
+}
+
+
+.works-item-wrapper{
+margin-top: 60px;
+display: flex;
+flex-wrap: wrap;
+gap: 40px;
+.works-box{
+width: calc((100% - 40px) / 2);
+background-color: #dfe1e4;
+padding: 40px;
+h3{
+font-size: 24px;
+margin-bottom: 10px;
+}
+p{
+width: 100%;
+aspect-ratio: 16/9;
+margin-bottom: 10px;
+overflow: hidden;
+>img{
+object-fit: cover;
+width: 100%;
+height: 100%;
+transition: 0.3s;
+}
+}
+ul{
+display: flex;
+gap: 0 16px;
+a:hover{
+text-decoration: underline;
+}
+}
+>a:hover img{
+scale: 1.2;
+}
+}
+}
