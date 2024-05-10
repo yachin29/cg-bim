@@ -10,12 +10,11 @@
 <p class="gradation">ビジョンを形にする<br>
 建築CGパースで新たな未来を描こう</p>
 </div>
-
 <div class="gallery-wrapper">
 <div class="photo-box">
-<p><img src="https://placehold.jp/600x400.png" alt=""></p>
-<p><img src="https://placehold.jp/640x960.png" alt=""></p>
-<p><img src="https://placehold.jp/600x400.png" alt=""></p>
+<p><img src="<?php echo get_template_directory_uri(); ?>/img/gallery-1.jpg" alt=""></p>
+<p><img src="<?php echo get_template_directory_uri(); ?>/img/gallery-3.jpg" alt=""></p>
+<p><img src="<?php echo get_template_directory_uri(); ?>/img/gallery-2.jpg" alt=""></p>
 </div>
 <div class="text-box">
 <h2 class="gradation">ビジョンを形に</h2>
@@ -30,12 +29,41 @@
 
 <div class="news-wrapper">
 <dl class="news-list">
-<dt>2024年04月09日<span><a href="#">サブカテゴリー</a></span></dt>
-<dd><a href="#">記事のタイトル</a></dd>
-<dt>2024年04月08日<span><a href="#">サブカテゴリー</a></span></dt>
-<dd><a href="#">記事のタイトル</a></dd>
-<dt>2024年04月07日<span><a href="#">サブカテゴリー</a></span></dt>
-<dd><a href="#">記事のタイトル</a></dd>
+
+<?php
+$arg = array(
+'posts_per_page' => 3, // 表示する件数
+'orderby' => 'date', // 日付でソート
+'order' => 'DESC', // DESCで最新から表示、ASCで最古から表示
+'category_name' => 'news', // 表示したいカテゴリーのスラッグを指定
+//'tag' => 'post'//表示したいタグをスラッグ指定
+);
+$posts = get_posts( $arg );
+if( $posts ):
+?>
+
+<!-- ループ開始 -->
+<?php
+foreach ( $posts as $post ) :
+setup_postdata( $post );
+?>
+
+<dt><?php the_time('Y年m月d日') ?><span><a href="#">
+<?php
+$cats = get_the_category();
+foreach ( $cats as $cat ):
+if ( $cat->parent ) echo $cat->cat_name;
+endforeach;
+?>
+</a></span></dt>
+<dd><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></dd>
+<?php endforeach; ?>
+<!-- ループ終了 -->
+<?php
+/// 必ずクエリをリセット
+  endif;
+  wp_reset_postdata();
+?>
 </dl>
 <p class="to-news btn-1"><a href="#">お知らせ一覧へ</a></p>
 </div><!-- /.news-wrapper -->
@@ -77,12 +105,41 @@
 
 <section id="pick-up">
 <h3 class="gradation">ピックアップ</h3>
-<div class="pick-wrapper">
 
-<div class="pick-box" data-rank="1">
+
+<div class="pick-wrapper">
+<?php
+$pick = array(
+'posts_per_page' => 3, // 表示する件数
+'meta_key' => 'rank', //カスタムフィールド名
+'orderby' => 'meta_value_num',
+'order' => 'ASC',
+'category_name' => 'pick-up', // 表示したいカテゴリーのスラッグを指定
+);
+$posts = get_posts( $pick );
+if( $posts ):
+?>
+
+<!-- ここからループ -->
+<?php
+foreach ( $posts as $post ) :
+setup_postdata( $post );
+?>
+<div class="pick-box">
 <div class="pick-text-box">
-<h4>制作実績の見出し1</h4>
-<p class="pick-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos optio voluptate esse dolores possimus corporis!</p>
+<h4><?php the_title(); ?></h4>
+<p class="pick-text">
+<?php
+// １、投稿テキストを取得する
+$content = get_the_content();
+// ２，HTMLタグをすべて取り除く
+$content = wp_strip_all_tags( $content );
+// ３．ショートコードを取り除く
+$content = strip_shortcodes( $content );
+// ４、出力する
+echo $content;
+?>
+</p>
 <ul>
 <li><a href="#">外観CGパース</a></li>
 <li><a href="#">VR・ARコンテンツ</a></li>
@@ -90,34 +147,20 @@
 <p class="btn-1 to-works"><a href="#">実績一覧へ</a></p>
 </div><!-- /.pick-text-box -->
 <p class="pick-img">
-<img src="https://placehold.jp/800x600.png" alt="">
+<?php the_post_thumbnail(); ?>
 </p>
 </div><!-- /.pick-box -->
 
-<div class="pick-box" data-rank="2">
-<div class="pick-text-box">
-<h4>制作実績の見出し2</h4>
-<p class="pick-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos optio voluptate esse dolores possimus corporis!</p>
-<ul><li><a href="#">内観CGパース</a></li></ul>
-<p class="btn-1 to-works"><a href="#">実績一覧へ</a></p>
-</div><!-- /.pick-text-box -->
-<p class="pick-img">
-<img src="https://placehold.jp/800x600.png" alt="">
-</p>
-</div><!-- /.pick-box -->
-
-<div class="pick-box" data-rank="3">
-<div class="pick-text-box">
-<h4>制作実績の見出し3</h4>
-<p class="pick-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos optio voluptate esse dolores possimus corporis!</p>
-<ul><li><a href="#">BIM</a></li></ul>
-<p class="btn-1 to-works"><a href="#">実績一覧へ</a></p>
-</div><!-- /.pick-text-box -->
-<p class="pick-img">
-<img src="https://placehold.jp/800x600.png" alt="">
-</p>
-</div><!-- /.pick-box -->
+<?php endforeach; ?>
+<!-- ループ終了 -->
+<?php
+/// 必ずクエリをリセット
+  endif;
+  wp_reset_postdata();
+?>
 </div><!-- /.pick-wrapper -->
+
+
 </section>
 
 <section id="voice">
@@ -309,3 +352,5 @@ spaceBetween: 32,
 
 </body>
 </html>
+
+

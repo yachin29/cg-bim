@@ -2,6 +2,7 @@
 /* template Name:お問い合わせページ */
 ?>
 
+
 <?php get_header(); ?>
 
 <main>
@@ -66,7 +67,9 @@
 
 </main>
 
+
 <?php get_footer(); ?>
+
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="js/my-particles.js"></script>

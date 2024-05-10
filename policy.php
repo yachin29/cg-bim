@@ -1,11 +1,11 @@
 <?php
-/* template Name:ブログページ */
+/* template Name:サイトポリシーページ */
 ?>
 
 <?php get_header(); ?>
 
 <section>
-<h2>ブログページ</h2>
+<h2>サイトポリシーページ</h2>
 </section>
 
 <?php get_footer(); ?>
@@ -98,3 +98,5 @@ spaceBetween: 32,
 
 </body>
 </html>
+
+

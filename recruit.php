@@ -1,12 +1,14 @@
 <?php
-/* template Name:ブログページ */
+/* template Name:リクルートページ */
 ?>
 
 <?php get_header(); ?>
 
 <section>
-<h2>ブログページ</h2>
+<h2>リクルートページ</h2>
 </section>
+
+
 
 <?php get_footer(); ?>
 
@@ -98,3 +100,5 @@ spaceBetween: 32,
 
 </body>
 </html>
+
+
