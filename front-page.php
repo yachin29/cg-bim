@@ -141,8 +141,7 @@ echo $content;
 ?>
 </p>
 <ul>
-<li><a href="#">外観CGパース</a></li>
-<li><a href="#">VR・ARコンテンツ</a></li>
+<?php  the_tags('<li>','</li><li>','</li>'); ?>
 </ul>
 <p class="btn-1 to-works"><a href="#">実績一覧へ</a></p>
 </div><!-- /.pick-text-box -->
