@@ -3,13 +3,10 @@
 ?>
 
 <?php get_header(); ?>
-
 <section>
 <h2>ブログページ</h2>
 </section>
-
 <?php get_footer(); ?>
-
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 

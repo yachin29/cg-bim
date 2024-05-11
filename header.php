@@ -4,7 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="<?php bloginfo('description'); ?>">
-<title><?php bloginfo('name'); ?></title>
+<title>
+<?php
+//サイトのタイトルと固定ページのタイトルを呼び出す
+$title = get_bloginfo('name').'｜'.get_the_title();
+echo $title;
+?>
+</title>
 <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 
 

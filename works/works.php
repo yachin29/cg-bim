@@ -23,10 +23,31 @@
 <label for="btn-vr">VR/AR</label>
 
 <div class="works-item-wrapper">
+
+<?php
+$arg = array(
+'posts_per_page' => 10, // 表示する件数
+'orderby' => 'date', // 日付でソート
+'order' => 'DESC', // DESCで最新から表示、ASCで最古から表示
+'category_name' => 'works', // 表示したいカテゴリーのスラッグを指定
+//'tag' => 'post'//表示したいタグをスラッグ指定
+);
+$posts = get_posts( $arg );
+if( $posts ):
+?>
+
+<!-- ループ開始 -->
+<?php
+foreach ( $posts as $post ) :
+setup_postdata( $post );
+?>
+
 <div class="works-box" data-category="cate-1 cate-3">
 <a href="#">
-<h3>投稿記事の見出し</h3>
-<p><img src="https://placehold.jp/800x600.png" alt=""></p>
+<h3><?php the_title(); ?></h3>
+<div class="works-content">
+<?php the_content(); ?>
+</div>
 </a>
 <ul>
 <li><a href="#">外観CGパース</a></li>
@@ -34,49 +55,13 @@
 </ul>
 </div><!-- /.works-box -->
 
-<div class="works-box" data-category="cate-2 cate-4">
-<a href="#">
-<h3>投稿記事の見出し</h3>
-<p><img src="https://placehold.jp/800x600.png" alt=""></p>
-</a>
-<ul>
-<li><a href="#">内観CGパース</a></li>
-<li><a href="#">VR/AR</a></li>
-</ul>
-</div><!-- /.works-box -->
-
-<div class="works-box" data-category="cate-3">
-<a href="#">
-<h3>投稿記事の見出し</h3>
-<p><img src="https://placehold.jp/800x600.png" alt=""></p>
-</a>
-<ul>
-<li><a href="#">BIM</a></li>
-</ul>
-</div><!-- /.works-box -->
-
-<div class="works-box" data-category="cate-4">
-<a href="#">
-<h3>投稿記事の見出し</h3>
-<p><img src="https://placehold.jp/800x600.png" alt=""></p>
-</a>
-<ul>
-<li><a href="#">VR/AR</a></li>
-</ul>
-</div><!-- /.works-box -->
-
-<div class="works-box" data-category="cate-1 cate-2 cate-3 cate-4">
-<a href="#">
-<h3>投稿記事の見出し</h3>
-<p><img src="https://placehold.jp/800x600.png" alt=""></p>
-</a>
-<ul>
-<li><a href="#">外観CGパース</a></li>
-<li><a href="#">内観CGパース</a></li>
-<li><a href="#">BIM</a></li>
-<li><a href="#">VR/AR</a></li>
-</ul>
-</div><!-- /.works-box -->
+<?php endforeach; ?>
+<!-- ループ終了 -->
+<?php
+/// 必ずクエリをリセット
+  endif;
+  wp_reset_postdata();
+?>
 
 
 
