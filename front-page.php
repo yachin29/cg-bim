@@ -7,7 +7,7 @@
 <div id="particles-js"></div>
 
 <div class="tag-line">
-<p class="gradation">あああああビジョンを形にする<br>
+<p class="gradation">ビジョンを形にする<br>
 建築CGパースで新たな未来を描こう</p>
 </div>
 <div class="gallery-wrapper">
