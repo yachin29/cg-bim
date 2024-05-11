@@ -705,6 +705,9 @@ section > h3 {
   display: flex;
   flex-direction: row-reverse;
 }
+.pick-wrapper > .pick-box:first-of-type > .pick-text-box {
+  width: 50%;
+}
 .pick-wrapper > .pick-box:first-of-type > .pick-img {
   margin-right: 50px;
 }

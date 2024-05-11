@@ -65,7 +65,7 @@ endforeach;
   wp_reset_postdata();
 ?>
 </dl>
-<p class="to-news btn-1"><a href="#">お知らせ一覧へ</a></p>
+<p class="to-news btn-1"><a href="<?php echo esc_url( home_url() ); ?>/blog/">ブログ一覧へ</a></p>
 </div><!-- /.news-wrapper -->
 </section>
 
@@ -105,7 +105,6 @@ endforeach;
 
 <section id="pick-up">
 <h3 class="gradation">ピックアップ</h3>
-
 
 <div class="pick-wrapper">
 <?php
@@ -170,20 +169,20 @@ echo $content;
 <div class="avatar">
 <img src="<?php echo get_template_directory_uri(); ?>/img/voice-1.svg" alt="">
 </div>
-<p class="voice-name">A社の担当者様</p>
-<p class="voice-date">2024年4月10日</p>
-<h4>イメージ通りのCGで満足</h4>
-<p class="voice-text">当社の建物のCGパースを制作していただきました。BIM技術を使って、リアルなイメージを提供していただき、大変満足しております。また、スムーズなコミュニケーションで、要望に沿ったCGパースを作っていただけたことも、大変助かりました。</p>
+<p class="voice-name"><?php echo get_post_meta(40,'voice-name',true) ?></p>
+<p class="voice-date"><?php echo get_post_meta(40,'voice-date',true) ?></p>
+<h4><?php echo get_post_meta(40,'voice-title',true) ?></h4>
+<p class="voice-text"><?php echo get_post_meta(40,'voice-message',true) ?></p>
 </div><!-- /.voice-box -->
 
 <div class="voice-box">
 <div class="avatar">
 <img src="<?php echo get_template_directory_uri(); ?>/img/voice-2.svg" alt="">
 </div>
-<p class="voice-name">B社の担当者様</p>
-<p class="voice-date">2024年3月20日</p>
-<h4>丁寧な仕事に感謝しています</h4>
-<p class="voice-text">弊社の商業施設のCGパースを制作していただきました。BIM技術を使ったCGパースは、まるで完成した建物のようにリアルで、投資家の方々からも高く評価されました。スピーディーな対応と丁寧な仕事に感謝しています。</p>
+<p class="voice-name"><?php echo get_post_meta(42,'voice-name',true) ?></p>
+<p class="voice-date"><?php echo get_post_meta(42,'voice-date',true) ?></p>
+<h4><?php echo get_post_meta(42,'voice-title',true) ?></h4>
+<p class="voice-text"><?php echo get_post_meta(42,'voice-message',true) ?></p>
 </div><!-- /.voice-box -->
 
 
@@ -191,10 +190,10 @@ echo $content;
 <div class="avatar">
 <img src="<?php echo get_template_directory_uri(); ?>/img/voice-3.svg" alt="">
 </div>
-<p class="voice-name">C社の担当者様</p>
-<p class="voice-date">2024年3月12日</p>
-<h4>最新のBIM技術に感動</h4>
-<p class="voice-text">私たちのマンションのCGパースを制作していただきました。BIM技術を駆使して、細かい部分までリアルに再現していただけたことに、感動しました。また、短い期間での対応やスタッフの方々の丁寧な対応に、大変満足しております。</p>
+<p class="voice-name"><?php echo get_post_meta(44,'voice-name',true) ?></p>
+<p class="voice-date"><?php echo get_post_meta(44,'voice-date',true) ?></p>
+<h4><?php echo get_post_meta(44,'voice-title',true) ?></h4>
+<p class="voice-text"><?php echo get_post_meta(44,'voice-message',true) ?></p>
 </div><!-- /.voice-box -->
 </div><!-- /.voice-wrapper -->
 </section><!-- /#voice -->
