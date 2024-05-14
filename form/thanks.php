@@ -1,5 +1,5 @@
 <?php
-/* template Name:お問い合わせページ */
+/* template Name:サンクスページ */
 ?>
 
 <?php get_header(); ?>
@@ -9,14 +9,9 @@
 </div>
 
 <section id="form-wrapper">
-<h2 class="gradation">お問い合わせ</h2>
-
-<?php
-echo do_shortcode('[contact-form-7 id="85a5c68" title="お問い合わせフォーム"]');
-?>
-
+<h2 class="gradation">お問い合わせありがとうございました。</h2>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos qui, corrupti nobis nulla cumque inventore molestiae ipsa iusto explicabo ratione, porro aspernatur quas animi non, repudiandae enim reiciendis? Tempora, voluptates!</p>
 </section><!-- /.form-wrapper -->
-
 </main>
 
 
@@ -26,14 +21,6 @@ echo do_shortcode('[contact-form-7 id="85a5c68" title="お問い合わせフォ�
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="js/my-particles.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
-
-<script>
-//thanksページへリダイレクト
-document.addEventListener( 'wpcf7mailsent', function( event ) {
-location = '<?php echo esc_url( home_url() ); ?>/thanks/';
-});
-</script>
-
 <script>
 $(function(){
 $(window).on('scroll resize',function(){

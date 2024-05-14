@@ -1,7 +1,6 @@
 <?php
 /* template Name:worksページ */
 ?>
-
 <?php get_header(); ?>
 
 <main>
@@ -42,7 +41,7 @@ foreach ( $posts as $post ) :
 setup_postdata( $post );
 ?>
 
-<div class="works-box" data-category="cate-1 cate-3">
+<div class="works-box" data-category="">
 <a href="#">
 <h3><?php the_title(); ?></h3>
 <div class="works-content">
@@ -50,8 +49,7 @@ setup_postdata( $post );
 </div>
 </a>
 <ul>
-<li><a href="#">外観CGパース</a></li>
-<li><a href="#">BIM</a></li>
+<?php the_tags('<li>','</li><li>','</li>'); ?>
 </ul>
 </div><!-- /.works-box -->
 

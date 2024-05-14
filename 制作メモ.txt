@@ -116,6 +116,7 @@ drop-menu-1.jpg~drop-menu-4.jpg
 
 
 フィルタリング時のカテゴリー名
+タグの名前：タグのスラッグ
 外観CGパース；cate-1
 内観パース：cate-2
 BIM:cata-3

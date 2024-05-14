@@ -1,11 +1,50 @@
 <?php
 /* template Name:ブログページ */
 ?>
-
 <?php get_header(); ?>
-<section>
-<h2>ブログページ</h2>
-</section>
+
+<div class="container">
+<main>
+<div class="post-wrapper">
+
+<!-- ここからループの処理 -->
+<?php if(have_posts()): ?>
+<?php while (have_posts()): ?>
+<?php the_post(); ?>
+
+<article <?php post_class(); ?>>
+<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+<p class="post-photo">
+<?php if(has_post_thumbnail()): ?>
+<?php the_post_thumbnail(); ?>
+<?php else: ?>
+<img src="<?php echo get_template_directory_uri(); ?>/img/post.jpg" alt="">
+<?php endif; ?>
+</p>
+
+<div class="post-text"><?php the_content(); ?></div>
+<div class="post-category"><?php the_category(); ?></div>
+<p class="post-date"><?php the_time('Y/m/d'); ?></p>
+</article>
+
+<?php endwhile; //投稿ループ終了 ?>
+
+<!-- ここにページネーションの処理 -->
+<?php the_posts_pagination(); ?>
+<?php else: ?>
+<p>当てはまる情報はまだありません</p>
+
+<?php endif; //条件分岐終了 ?>
+<!-- ここまでループの処理 -->
+
+</div><!-- /.post-wrapper -->
+</main>
+<aside>
+<?php dynamic_sidebar('sidebar-widget'); ?>
+</aside>
+</div><!-- /.container -->
+
 <?php get_footer(); ?>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
