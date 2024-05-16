@@ -808,6 +808,7 @@ transition: 0.3s;
 ul{
 display: flex;
 gap: 0 16px;
+line-height: 1.8;
 a:hover{
 text-decoration: underline;
 }
@@ -817,6 +818,8 @@ scale: 1.2;
 }
 }
 }
+
+
 
 
 /* お問い合わせフォーム */
@@ -962,7 +965,7 @@ text-decoration: underline;
 >.post-text{
 margin-bottom: 10px;
 grid-row: 2/4;
-grid-column: 3/6;
+grid-column: 1/6;
 }
 >.post-date{
 text-align: right;
@@ -1035,16 +1038,19 @@ display: none;
 
 /* 検索 */
 .wp-block-search__button.wp-element-button{
-background: url(img/search.svg) no-repeat center center/20px;
+background:#DDD url(../img/search.svg) no-repeat center center/20px;
 text-indent: 100%;
 white-space: nowrap;
 overflow: hidden;
+margin-left: 0;
+border: 1px solid #222;
 }
+
 .wp-block-search__input{
 display: inline-block;
 border: 1px solid #222;
 width: 70%;
-margin-right: 10px;
+margin-right: 0;
 }
 
 #block-8,#block-11{

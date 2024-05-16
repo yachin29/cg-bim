@@ -41,11 +41,13 @@ foreach ( $posts as $post ) :
 setup_postdata( $post );
 ?>
 
-<div class="works-box" data-category="">
-<a href="#">
+<div class="works-box" data-category="<?php $posttags = get_the_tags(); if ( $posttags ) { foreach ( $posttags as $tag ) { echo $tag->slug . ' ';} } ?>">
+<a href="<?php the_permalink(); ?>">
 <h3><?php the_title(); ?></h3>
 <div class="works-content">
-<?php the_content(); ?>
+<p>
+<?php the_post_thumbnail(); ?>
+</p>
 </div>
 </a>
 <ul>

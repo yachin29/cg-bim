@@ -6,37 +6,40 @@
 <div class="container">
 <main>
 <div class="post-wrapper">
-
-<!-- ここからループの処理 -->
-<?php if(have_posts()): ?>
-<?php while (have_posts()): ?>
-<?php the_post(); ?>
+<?php
+$arg = array(
+//'posts_per_page' => 4, // 表示する件数
+'orderby' => 'date', // 日付でソート
+'order' => 'DESC', // DESCで最新から表示、ASCで最古から表示
+'category_name' => 'blog', // 表示したいカテゴリーのスラッグを指定
+//'tag' => 'post'//表示したいタグをスラッグ指定
+);
+$posts = get_posts( $arg );
+if( $posts ):
+?>
+<!-- ループ開始 -->
+<?php
+foreach ( $posts as $post ) :
+setup_postdata( $post );
+?>
 
 <article <?php post_class(); ?>>
 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-
-<p class="post-photo">
-<?php if(has_post_thumbnail()): ?>
-<?php the_post_thumbnail(); ?>
-<?php else: ?>
-<img src="<?php echo get_template_directory_uri(); ?>/img/post.jpg" alt="">
-<?php endif; ?>
-</p>
-
 <div class="post-text"><?php the_content(); ?></div>
-<div class="post-category"><?php the_category(); ?></div>
 <p class="post-date"><?php the_time('Y/m/d'); ?></p>
 </article>
 
-<?php endwhile; //投稿ループ終了 ?>
+<?php endforeach; ?>
+<!-- ループ終了 -->
 
 <!-- ここにページネーションの処理 -->
 <?php the_posts_pagination(); ?>
-<?php else: ?>
-<p>当てはまる情報はまだありません</p>
 
-<?php endif; //条件分岐終了 ?>
-<!-- ここまでループの処理 -->
+<?php
+// 必ずクエリをリセット
+  endif;
+  wp_reset_postdata();
+?>
 
 </div><!-- /.post-wrapper -->
 </main>
@@ -44,6 +47,7 @@
 <?php dynamic_sidebar('sidebar-widget'); ?>
 </aside>
 </div><!-- /.container -->
+
 
 <?php get_footer(); ?>
 

@@ -28,7 +28,27 @@ add_filter( 'post_thumbnail_html', 'set_default_thumbnail_image' );
 // 文字数制限を110から40に変更
 add_filter( 'excerpt_length', function( $length ){
   return 40;
-}, 999 )
+}, 999 );
+
+//ウジェットエリアを有効にする
+function custom_widget_register(){
+	register_sidebar(array(
+		'name' => 'サイドバーウィジェットエリア',
+		'id' => 'sidebar-widget',
+		'description' => 'ブログページのサイドバーに表示されます',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="c-widget__title">',
+		'after_title' => '</h3>'
+	));
+}
+add_action('widgets_init', 'custom_widget_register');
+
+
+
+
+
+
 
 
 
